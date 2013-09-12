@@ -16,7 +16,6 @@ if ($res) {
 
         $struct = $dbh->getColumnsInfo($tableName);
         $mainTableName = str_replace('_uploads', '', $tableName);
-
         // принимаем решение об обновлении по наличию у поля upl_id PRI
         if (isset($struct['upl_id']) && isset($struct['upl_id']['index']) && $struct['upl_id']['index'] == 'PRI') {
 
@@ -53,7 +52,7 @@ if ($res) {
             // 5. переименовываем _order_num
             $new_order_num = $new_prefix . '_order_num';
             echo sprintf("ALTER TABLE `%s` CHANGE COLUMN `upl_order_num` `%s` int(10) unsigned NOT NULL DEFAULT 0;\n", $tableName, $new_order_num);
-            echo sprintf("ALTER TABLE `%s` ADD INDEX `%s` (`%s`);\n", $tableName, $new_order_num);
+            echo sprintf('ALTER TABLE `%s` ADD INDEX `%s_idx` (`%2$s`);'.PHP_EOL, $tableName, $new_order_num);
 
             echo "\n";
         } else {
