@@ -1,6 +1,6 @@
 {
-  "name": "energine/cmf",
-  "description": "Energine is an XML/XSLT content management framework.",
+  "name": "energine/starter",
+  "description": "Energine is an XML/XSLT content management framework. This is empty project.",
   "type": "project",
   "license": "MIT",
   "keywords": [
